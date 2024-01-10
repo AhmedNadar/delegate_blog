@@ -1,0 +1,9 @@
+<!-- app/views/publications/show.html.erb -->
+<div class="container mx-auto">
+  <% publishable = @publication.publishable %>
+  <% if publishable.is_a?(Post) %>
+    <%= render "publications/posts/post", publication: @publication %>
+  <% elsif publishable.is_a?(Comment) %>
+    <%= render "publications/comments/comment", publication: @publication %>
+  <% end %>
+</div>

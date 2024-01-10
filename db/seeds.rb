@@ -22,15 +22,16 @@ posts = [
   { title: "Guide to RSpec", body: "RSpec is a testing tool for Ruby..." }
 ].map { |post| Post.create!(post) }
 
-# Creating Comments
+# Creating Comments belong to Posts
 comments = [
-  "Great article!",
-  "Very informative post.",
-  "Thanks for the insights!",
-  "I learned a lot from this.",
-  "This is a great resource.",
-  "I'm looking forward to the next one."
-].map { |content| Comment.create!(content: content) }
+  { content: "Great post!", post: posts[0] },
+  { content: "I disagree with some of the points.", post: posts[0] },
+  { content: "Looking forward to the next post.", post: posts[1] },
+  { content: "I think Rails is the best web framework!", post: posts[2] },
+  { content: "What about unit testing?", post: posts[4] },
+  { content: "I think unit testing is important.", post: posts[4] }
+].map { |comment| Comment.create!(comment) }
+
 
 # Associating Posts and Comments with Authors
 posts.each_with_index do |post, index|

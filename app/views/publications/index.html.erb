@@ -1,0 +1,34 @@
+<!-- app/views/publications/index.html.erb -->
+<div class="container mx-auto">
+  <h1 class="text-4xl font-bold text-center">Publications</h1>
+
+  <!-- Section for Posts -->
+  <h2 class="mt-5 text-3xl font-bold">Posts</h2>
+  <ul>
+    <% @publications.each do |publication| %>
+      <% if publication.publishable.is_a?(Post) %>
+        <li>
+          - <%= link_to publication.publishable.title, post_path(publication.publishable), class: "text-blue-400" %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <!-- Section for Comments -->
+  <h2 class="mt-5 text-3xl font-bold">Comments</h2>
+  <ul>
+    <% @publications.each do |publication| %>
+      <% if publication.publishable.is_a?(Comment) %>
+        <li>
+          <span>Comment on </span>
+          <%= link_to publication.publishable.post.title, comment_path(publication.publishable), class: "text-blue-400" %>
+          by <span class="text-blue-400"> <%= link_to publication.author.name, author_path(publication.author) %> </span>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <div class="flex mt-4">
+    <%= link_to 'New Post', new_publication_path(publishable_type: "Post"), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+</div>

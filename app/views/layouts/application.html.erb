@@ -13,6 +13,11 @@
 
   <body>
     <main class="container flex flex-col px-5 mx-auto mt-28">
+    <nav>
+      <%= link_to 'All Posts', posts_path %> |
+      <%= link_to 'All Authors', authors_path %> |
+      <%= link_to 'All Publications', publications_path %>
+    </nav>
       <%= yield %>
     </main>
   </body>
