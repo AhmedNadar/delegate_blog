@@ -1,0 +1,8 @@
+<div class="container mx-auto">
+  <h1 class="text-4xl font-bold text-center">All Comments</h1>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li><%= link_to comment.content, comment_path(comment) %></li>
+    <% end %>
+  </ul>
+</div>

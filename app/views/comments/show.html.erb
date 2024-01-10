@@ -1,0 +1,6 @@
+<div class="container mx-auto">
+  <h1 class="text-4xl font-bold">Comment</h1>
+  <p><%= @comment.content %></p>
+  <p class= "text-blue-500 underline">Author: <%= link_to @comment.publication.author.name, author_path(@comment.publication.author) %></p>
+  </p>
+</div>

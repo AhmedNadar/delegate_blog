@@ -1,0 +1,21 @@
+<!-- app/views/publications/posts/_post.html.erb -->
+<div class="post">
+  <h1 class="text-3xl font-bold"><%= link_to publication.publishable.title, publication.publishable, class: "text-blue-400 underline" %></h1>
+  <i class="text-sm text-gray-400">Posted on <%= publication.created_at.strftime("%B %d, %Y") %> by <%= link_to publication.author.name, publication.author, class: "text-blue-400 underline" %></i>
+  <p class="p-4 mt-4 border"><%= publication.publishable.body %></p>
+</div>
+
+<!-- This is the old way -->
+<%
+=begin%>
+<div class="container mx-auto">
+  <h1 class="text-4xl font-bold"><%= @post.title %></h1>
+  <p>By <%= link_to @post.publication.author.name, @post.publication.author, class: "text-blue-500 underline" %></p>
+  <p class="mt-4"><%= @post.body %></p>
+  <br>
+  <hr>
+  <br>
+  <%= link_to "Show All Posts", posts_path, class:"underline text-blue-500" %>
+</div>
+<%
+=end%>

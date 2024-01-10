@@ -1,0 +1,6 @@
+<!-- app/views/posts/show.html.erb -->
+<div class="container flex flex-col mx-auto">
+  <%= render partial: 'publications/posts/post', locals: { publication: @post.publication } %>
+  <br>
+  <%= link_to "Show All Posts", posts_path, class:"underline text-blue-500" %>
+</div>

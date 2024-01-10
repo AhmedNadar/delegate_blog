@@ -1,0 +1,22 @@
+
+<div class="container mx-auto">
+  <h1 class="text-4xl font-bold text-center">All Posts...</h1>
+  <table class="w-full table-auto">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">Title</th>
+        <th class="px-4 py-2">Body</th>
+        <th class="px-4 py-2">Author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr class="<%= cycle('bg-gray-100', 'bg-white') %>">
+          <td class="px-4 py-2 border"><%= post.title %></td>
+          <td class="px-4 py-2 border"><%= post.body %></td>
+          <td class="px-4 py-2 border"><%= link_to post.publication.author.name, post.publication.author, class:"underline text-blue-500" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

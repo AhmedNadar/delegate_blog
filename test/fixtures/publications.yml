@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  publishable: one
+  publishable_type: Publishable
+  author: one
+
+two:
+  publishable: two
+  publishable_type: Publishable
+  author: two

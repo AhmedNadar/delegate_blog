@@ -1,0 +1,6 @@
+<!-- Iterate over publications and render comments -->
+<% author.publications.each do |publication| %>
+  <% if publication.publishable.is_a?(Comment) %>
+    <%= render "publications/comments/comment", publication: publication %>
+  <% end %>
+<% end %>

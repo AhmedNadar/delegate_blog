@@ -1,0 +1,29 @@
+<div class="container mx-auto">
+  <h1 class="text-4xl font-bold"><%= @author.name %>'s publications</h1>
+  <div class="flex flex-col mt-10">
+    <%= render 'author_posts', author: @author %>
+    <%= render 'author_comments', author: @author %>
+
+    <!-- render all publications (both post and comments)  -->
+    <%# @author.publications.each do |publication| %>
+    <%#= render "publications/#{publication.publishable_type.downcase.pluralize}/#{publication.publishable_type.downcase}", publication: publication %>
+    <%# end %>
+  </div>
+</div>
+<!-- This is the old way -->
+<%
+=begin%>
+ <% publishable = publication.publishable %>
+      <li>
+        <% if publishable.is_a?(Post) %>
+          <%= link_to publishable.title, post_path(publishable), class: "text-blue-500 underline" %>
+        <% elsif publishable.is_a?(Comment) %>
+          <%= link_to "Comment: #{publishable.content.truncate(30)}", comment_path(publishable) %>
+        <% end %>
+      </li>
+<%
+=end
+%>
+
+
+

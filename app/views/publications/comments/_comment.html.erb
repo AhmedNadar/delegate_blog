@@ -1,0 +1,10 @@
+<!-- app/views/publications/comments/_comment.html.erb -->
+<div class="m-y-8 comment">
+  <p clss="font-semibold m-y-2">Comments:</p>
+
+  <p class="flex flex-col p-2 text-sm border">
+    <small>Commented on <%= publication.created_at.strftime("%B %d, %Y") %></small>
+    <%= publication.author.name %> said: <%= publication.publishable.content %>
+  </p>
+</div>
+

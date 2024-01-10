@@ -1,0 +1,6 @@
+<!-- Iterate over publications and render posts -->
+<% author.publications.each do |publication| %>
+  <% if publication.publishable.is_a?(Post) %>
+    <%= render "publications/posts/post", publication: publication %>
+  <% end %>
+<% end %>
