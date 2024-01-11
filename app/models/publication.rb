@@ -9,9 +9,7 @@ class Publication < ApplicationRecord
   accepts_nested_attributes_for :publishable
 
   # Delegating a method (e.g., title for Post, content for Comment) to the publishable object
-  delegate :title, to: :publishable, allow_nil: true
-  delegate :content, to: :publishable, allow_nil: true
-
+  delegate :title, :content, to: :publishable, allow_nil: true
 
   # Method to return a displayable title or name for the publication
   def display_name
